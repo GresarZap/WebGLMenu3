@@ -608,7 +608,7 @@ function main() {
 
         forma = formaSeleccionada;
 
-        let ruta = "WebGLMenu3/Modelos/";
+        let ruta = "Modelos/";
         switch (forma) {
             case "cuboIlu":
                 objetoIlu = new ObjetoIlu(gl, ruta, "cubo2.obj");

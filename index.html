@@ -1,0 +1,320 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Escena3D</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/mystyle.css">
+</head>
+
+<body>
+    <div class="container">
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+            <span></span>
+        </label>
+        <nav class="sidebar">
+            <header>
+                <div class="image-text">
+                    <span class="image">
+                        <img src="img/logo.png" class="logo">
+                    </span>
+
+                    <div class="text logo-text">
+                        <span class="name">WebGL 2.0</span>
+                        <span class="profession">Animacion 3D</span>
+                    </div>
+                </div>
+
+                <i class='bx bx-chevron-right toggle'></i>
+            </header>
+
+            <div class="menu-bar">
+                <div class="menu">
+
+
+                    <ul class="menu-links">
+                        <li class="nav-link">
+                            <i class='bx bx-search icon'></i>
+                            <select name="forma" id="forma">
+                                <option class="text nav-text" value="planeta">Planeta</option>
+                                <option value="cubo" selected>Cubo</option>
+                                <option value="esfera">Esfera</option>
+                                <option value="objeto">Objeto</option>
+                                <option value="cuboT">Cubo Textura</option>
+                                <option value="esferaT">Esfera Textura</option>
+                                <option value="cuboIlu">Cubo Iluminacion</option>
+                                <option value="avionIlu">Avion Iluminacion</option>
+                                <option value="alIlu">Al Iluminacion</option>
+                                <option value="cocheIlu">Coche Iluminacion</option>
+                                <option value="rosaIlu">Rosa Iluminacion</option>
+                            </select>
+                        </li>
+                        <li class="nav-link" id="wireframe">
+                            <a href="#">
+                                <i class="fa-solid fa-border-all icon"></i>
+                                <span class="text nav-text">Wireframe</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link" id="solid">
+                            <a href="#">
+                                <i class="fa-solid fa-square icon"></i>
+                                <span class="text nav-text">Solid</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link" id="reset">
+                            <a href="#">
+                                <i class="fa-solid fa-rotate icon"></i>
+                                <span class="text nav-text">Reset</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link" id="fondo">
+                            <a href="#">
+                                <i class="fa-solid fa-paint-roller icon"></i>
+                                <span class="text nav-text">Fondo</span>
+                            </a>
+                        </li>
+                        <li class="nav-link" id="frustum">
+                            <a href="#">
+                                <i class="fa-solid fa-binoculars icon"></i>
+                                <span class="text nav-text">Frustum</span>
+                            </a>
+                        </li>
+                        <li class="nav-link" id="perspective">
+                            <a href="#">
+                                <i class="fa-solid fa-eye icon"></i>
+                                <span class="text nav-text">Perspective</span>
+                            </a>
+                        </li>
+                        <li class="nav-link" id="paralela">
+                            <a href="#">
+                                <i class="fa-solid fa-street-view icon"></i>
+                                <span class="text nav-text">Paralela</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a>
+                                <i class="fa-solid fa-x icon"></i>
+                                <input type="range" id="rangoX" name="rango" min="1" max="5" value="0" step="0.1">
+                                <span id="x" class="text">1</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a>
+                                <i class="fa-solid fa-y icon"></i>
+                                <input type="range" id="rangoY" name="rango" min="1" max="5" value="0" step="0.1">
+                                <span id="y" class="text">1</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a>
+                                <i class="fa-solid fa-z icon"></i>
+                                <input type="range" id="rangoZ" name="rango" min="1" max="5" value="0" step="0.1">
+                                <span id="z" class="text">1</span>
+                            </a>
+                        </li>
+                        <li class="nav-link" id="ilu">
+                            <a>
+                                <i class="fa-solid fa-lightbulb icon"></i>
+                                <span class="text nav-text">Iluminacion</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a>
+                                <i class="fa-solid fa-x icon"></i>
+                                <input type="range" id="rangoXIlu" name="rango" min="-10" max="10" value="0" step="0.1">
+                                <span id="xilu" class="text">0</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a>
+                                <i class="fa-solid fa-y icon"></i>
+                                <input type="range" id="rangoYIlu" name="rango" min="-10" max="10" value="0" step="0.1">
+                                <span id="yilu" class="text">0</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a>
+                                <i class="fa-solid fa-z icon"></i>
+                                <input type="range" id="rangoZIlu" name="rango" min="-15" max="-2" value="-2"
+                                    step="0.1">
+                                <span id="zilu" class="text">-2</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bottom-content">
+
+                    <li class="mode">
+                        <div class="sun-moon">
+                            <i class='bx bx-moon icon moon'></i>
+                            <i class='bx bx-sun icon sun'></i>
+                        </div>
+                        <span class="mode-text text">Dark mode</span>
+
+                        <div class="toggle-switch">
+                            <span class="switch"></span>
+                        </div>
+                    </li>
+
+                </div>
+            </div>
+
+        </nav>
+
+        <section class="home">
+            <!-- <div class="text">Dashboard Sidebar</div> -->
+            <div id="canvas-holder">
+                <canvas id="webglcanvas" style="border: none;" width="1440" height="710"></canvas>
+            </div>
+        </section>
+    </div>
+
+
+    <img src="img/images.jpg" id="imagenTextura1" hidden />
+    <img src="img/Planet_2_d.png" id="imagenTextura2" hidden />
+
+
+    <script id="vs" type="vertex">
+        #version 300 es
+        uniform mat4 uMatrizProyeccion;
+        uniform mat4 uMatrizVista;
+        uniform mat4 uMatrizModelo;
+        layout(location = 0) in vec3 aVertices;
+        layout(location = 1) in vec4 aColores;
+        out vec4 vColores;
+        void main() {
+          vColores = aColores;  
+          gl_Position = uMatrizProyeccion * uMatrizVista * uMatrizModelo * vec4(aVertices, 1.0);
+        }
+      </script>
+
+    <script id="fs" type="fragment">
+        #version 300 es
+        precision highp float;
+        in vec4 vColores;
+        out vec4 color;
+        void main() {
+            color = vColores;
+        }
+    </script>
+
+    <script id="vs2" type="vertex">
+        #version 300 es
+        precision mediump float;
+        uniform mat4 uMatrizProyeccion;
+        uniform mat4 uMatrizVista;
+        uniform mat4 uMatrizModelo;
+        layout(location = 0) in vec3 aVertices;
+        layout(location = 1) in vec2 aCoordenadasDeTextura;
+        out vec2 vCoordenadasDeTextura;
+        void main() {
+            vCoordenadasDeTextura = aCoordenadasDeTextura;  
+            gl_Position = uMatrizProyeccion * uMatrizVista * uMatrizModelo * vec4(aVertices, 1.0);
+        }
+      </script>
+
+    <script id="fs2" type="fragment">
+        #version 300 es
+        precision mediump float;
+        uniform sampler2D uUnidadDeTextura;
+        in vec2 vCoordenadasDeTextura;
+        out vec4 color;
+        void main() {
+            color = texture(uUnidadDeTextura, vCoordenadasDeTextura); 
+        }
+      </script>
+
+    <script id="vs3" type="vertex">
+      #version 300 es
+      precision mediump float;
+      uniform mat4 uMatrizProyeccion;
+      uniform mat4 uMatrizVista;
+      uniform mat4 uMatrizModelo;
+
+      layout(location = 0) in vec3 aVertices;
+      layout(location = 1) in vec3 aNormales;
+
+      out vec3 vNormales;
+      out vec3 vVertices;
+
+      void main() {
+
+        // En coordenadas de la camara (la normal)
+        vNormales = mat3(uMatrizVista) * mat3(uMatrizModelo) * normalize(aNormales);
+
+        // En coordenadas de la camara (el vertice)
+        vec4 vertices = uMatrizVista * uMatrizModelo * vec4(aVertices, 1.0);
+
+        // vertices(x,y,z)
+        vVertices = vertices.xyz / vertices.w;
+
+        // P' = Proy * Vista * Modelo * P
+        gl_Position = uMatrizProyeccion * vertices;
+      }
+    </script>
+
+    <script id="fs3" type="fragment">
+      #version 300 es
+      precision highp float;
+      
+      uniform vec3 uPosicionVista;
+      uniform vec3 uPosicionLuz;
+      uniform vec3 u_Ia;
+      uniform vec3 u_Id;
+      uniform vec3 u_Is;
+      uniform vec3 u_ka;
+      uniform vec3 u_kd;
+      uniform vec3 u_ks;
+      uniform float u_brillo;
+
+      // Estas variables son enviadas del shader de vértice.
+      in vec3 vNormales;
+      in vec3 vVertices;
+
+      out vec4 color;
+      void main() {
+
+        // Vectores
+        vec3 N = normalize(vNormales);
+        vec3 L = normalize(uPosicionLuz - vVertices);
+        vec3 V = normalize(uPosicionVista - vVertices); // posicion - vista
+        vec3 H = normalize(L + V);
+
+        // Factores de iluminacion	
+        float NL = max(0.0, dot(N, L));
+        float NH = max(0.0, dot(N, H));
+
+        // Calcula la luz ambiente
+        vec3 luzAmbiente = u_ka * u_Ia;
+
+        // Calcula la luz difusa
+        vec3 luzDifusa = u_kd * u_Id * NL;
+
+        // Calcula la luz especular
+        vec3 luzEspecular = u_ks * u_Is * pow(NH, u_brillo);
+
+        // Modelo de Phong
+        vec3 rgb = luzAmbiente + luzDifusa + luzEspecular;
+
+        // La salida gl_FragColor es un vec4 que contiene el pixel color de este fragmento
+        color = vec4(rgb, 1.0);
+
+      }
+    </script>
+
+    <script type="module" src="src/sideBar.js"></script>
+    <script type="module" src="src/main.js"></script>
+</body>
+
+</html>
